@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listes des eleves{% endblock %}
+
+{% block body %}
+{%for un_eleve in eleves%}
+<div class="row">
+    <div class="card text-left col-4">
+        <div class="card-body">
+            <h4 class="card-title">Nom de l'eleve: {{un_eleve.nom}} {{un_eleve.prenom}}</h4>
+            <p class="card-text">Classe: {{un_eleve.classe.nom}}</p>
+            <hr>
+        </div>
+    </div>
+</div>
+{%endfor%}
+{% endblock %}

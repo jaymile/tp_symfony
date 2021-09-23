@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}toutes les Classes!{% endblock %}
+
+{% block body %}
+{% for une_classe in classes %}
+<div class="row">
+  <div class="card text-left col-4">
+    <div class="card-body">
+      <h4 class="card-title">Nom de la classe: {{une_classe.nom}}</h4>
+      <p class="card-text">Niveau de la classe: {{une_classe.niveau}}</p>
+      <p class="card-text">Nom du prof principale: {{une_classe.prof.nom}} {{une_classe.prof.prenom}}</p>
+      <hr>
+    </div>
+  </div>
+</div>
+{%endfor%}
+{% endblock %}
