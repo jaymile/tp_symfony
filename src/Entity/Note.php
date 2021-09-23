@@ -32,6 +32,17 @@ class Note
      */
     private $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Eleve::class, inversedBy="Note")
+     */
+    private $eleve;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Matiere::class, inversedBy="Note")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $matiere;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +80,30 @@ class Note
     public function setDate(string $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getEleve(): ?Eleve
+    {
+        return $this->eleve;
+    }
+
+    public function setEleve(?Eleve $eleve): self
+    {
+        $this->eleve = $eleve;
+
+        return $this;
+    }
+
+    public function getMatiere(): ?Matiere
+    {
+        return $this->matiere;
+    }
+
+    public function setMatiere(?Matiere $matiere): self
+    {
+        $this->matiere = $matiere;
 
         return $this;
     }
